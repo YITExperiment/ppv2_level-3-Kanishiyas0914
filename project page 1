@@ -1,0 +1,4 @@
+weight=30
+print(weight)
+height=1.42
+print(height)
