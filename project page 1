@@ -1,4 +1,6 @@
 weight=30
 print(weight)
+30
 height=1.42
 print(height)
+1.42
