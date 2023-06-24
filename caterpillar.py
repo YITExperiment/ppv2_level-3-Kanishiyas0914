@@ -1,5 +1,5 @@
-import random as rd
 import turtle as t
+import random as rd
 t.bgcolor('yellow')
 caterpillar=t.Turtle()
 caterpillar.shape('square')
@@ -14,7 +14,7 @@ leaf.shape('leaf')
 leaf.color('green')
 leaf.penup()
 leaf.hideturtle()
-leaf.speed(0)
+leaf.speed()
 game_started=False
 text_turtle=t.Turtle()
 text_turtle.write('Press SPACE to start',align='center', font=('Arial',16,'bold'))
@@ -23,10 +23,10 @@ score_turtle=t.Turtle()
 score_turtle.hideturtle()
 score_turtle.speed(0)
 def outside_window():
-	left_wall=t.window_width()/2
+	left_wall=-t.window_width()/2
 	right_wall=t.window_width()/2
 	top_wall=t.window_height()/2
-	bottom_wall=t.window_height()/2
+	bottom_wall=-t.window_height()/2
 	(x,y)=caterpillar.pos()
 	outside=x<left_wall or x>right_wall or y<bottom_wall or y>top_wall
 	return outside
@@ -48,8 +48,6 @@ def place_leaf():
 	leaf.setx(rd.randint(-200,200))
 	leaf.sety(rd.randint(-200,200))
 	leaf.showturtle()
-t.listen()
-t.mainloop()
 def start_game():
 	global game_started
 	if game_started:
@@ -62,7 +60,7 @@ def start_game():
 	caterpillar.shapesize(1,caterpillar_length,1)
 	caterpillar.showturtle()
 	display_score(score)
-    
+	place_leaf()  
 while True:
 	caterpillar.forward(caterpillar_speed)
 	if caterpillar.distance(leaf)<20:
